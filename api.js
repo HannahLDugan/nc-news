@@ -1,18 +1,18 @@
 import axios from 'axios';
 
-//GET /api/categories
+//GET /api/articles
 
-const getArticles = (articles) => {
+const getArticles = () => {
     return axios
       .get(`https://nc-news-ov84.onrender.com/api/articles`)
 }
 
-// GET 
+// GET /api/articles/:article_id
 
-// const getItems = (item) => {
-//         return axios
-//           .get(`https://nc-marketplace-sem-1.onrender.com/api/items`)
-//     }
+const getSingleArticle = (article_id) => {
+        return axios
+          .get(`https://nc-news-ov84.onrender.com/api/articles/${article_id}`)
+  }
 
 
-export { getArticles }
+export { getArticles, getSingleArticle }
