@@ -1,16 +1,27 @@
 import { getArticles } from "../../api";
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 function ArticlesList() {
 const [articles, setArticles] = useState([])
+const [loading, setLoading] = useState(true)
+const [error, setError] = useState(null)
 
 useEffect(() => {
     getArticles()
     .then((response) => {
-      //  console.log(response)
         setArticles(response.data.articles)
+        setLoading(false)
 })
 }, [])
+
+if (loading) {
+    return <div>Loading page..</div>
+}
+
+if (error) {
+    return <div>Error </div>
+}
 
 return (
     <div>
@@ -22,11 +33,12 @@ return (
                 <img src={article.article_img_url}/>
                <h2>{article.title}</h2>
                <h3>Author: {article.author}</h3>
-               <p>Topic: {article.body}</p>
+               <Link to={`/articles/${article.article_id}`}>Read more</Link>
+               {/* <p>Topic: {article.body}</p>
                <p>Comments: {article.comment_count}</p>
                <p>Published date: {article.created_at}</p>
                <p>Topic: {article.topic}</p>
-               <p>Votes: {article.votes}</p>
+               <p>Votes: {article.votes}</p> */}
                 </li>
             )
 })}
