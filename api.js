@@ -21,4 +21,12 @@ const getComments = (article_id) => {
   .get(`https://nc-news-ov84.onrender.com/api/articles/${article_id}/comments`)
 }
 
-export { getArticles, getSingleArticle, getComments }
+//PATCH /api/articles/:article_id
+
+const patchVotes = (article_id, inc_votes) => {
+  return axios
+  .patch(`https://nc-news-ov84.onrender.com/api/articles/${article_id}`,
+  { inc_votes: inc_votes })
+}
+
+export { getArticles, getSingleArticle, getComments, patchVotes }
