@@ -10,6 +10,7 @@ const [error, setError] = useState(null)
 useEffect(() => {
     getArticles()
     .then((response) => {
+        console.log(response.data.articles)
         setArticles(response.data.articles)
         setLoading(false)
 })
@@ -25,7 +26,7 @@ if (error) {
 
 return (
     <div>
-        <h1>Articles</h1>
+        <h1>Read Articles</h1>
         <ul>
             {articles.map((article) => {
             return (    
@@ -34,11 +35,6 @@ return (
                <h2>{article.title}</h2>
                <h3>Author: {article.author}</h3>
                <Link to={`/articles/${article.article_id}`}>Read more</Link>
-               {/* <p>Topic: {article.body}</p>
-               <p>Comments: {article.comment_count}</p>
-               <p>Published date: {article.created_at}</p>
-               <p>Topic: {article.topic}</p>
-               <p>Votes: {article.votes}</p> */}
                 </li>
             )
 })}

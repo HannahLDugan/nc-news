@@ -14,5 +14,11 @@ const getSingleArticle = (article_id) => {
           .get(`https://nc-news-ov84.onrender.com/api/articles/${article_id}`)
   }
 
+  //GET /api/articles/:article_id/comments
 
-export { getArticles, getSingleArticle }
+const getComments = (article_id) => {
+  return axios
+  .get(`https://nc-news-ov84.onrender.com/api/articles/${article_id}/comments`)
+}
+
+export { getArticles, getSingleArticle, getComments }
