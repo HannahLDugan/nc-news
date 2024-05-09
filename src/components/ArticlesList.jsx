@@ -10,7 +10,6 @@ const [error, setError] = useState(null)
 useEffect(() => {
     getArticles()
     .then((response) => {
-        console.log(response.data.articles)
         setArticles(response.data.articles)
         setLoading(false)
 })

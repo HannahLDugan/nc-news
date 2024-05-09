@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getComments } from "../../api";
 import Comments from "./Comments";
+import ArticleVotes from "./ArticleVotes";
 
 function SingleArticle () {
     const { article_id } = useParams();
@@ -12,7 +13,6 @@ function SingleArticle () {
 
     useEffect(() => {
         setLoading(true)
-        // setError(null)
         getSingleArticle(article_id) 
     .then((response) => {
         setArticles(response.data.article)
@@ -46,19 +46,21 @@ return (
                {/* <p>Comments: {article.comment_count}</p> */}
                <p>Published date: {article.created_at}</p>
                <p>Topic: {article.topic}</p>
-               <p>Votes: {article.votes}</p>
+               <b><p>Votes: {article.votes}</p></b>
+
+               <section className="votes">
+                <ArticleVotes article_id={article_id}/>
+               </section>
 
                <section className="comments-list">
                <Comments article_id={article_id} />
                </section>
+
                {/* </li> */}
             </div>
         )}
     </div>
 );
 }
-
-{/* <Comments article_id={article.article_id} /> */}
-
 
 export default SingleArticle;
