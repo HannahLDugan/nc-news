@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getComments } from "../../api";
 import Comments from "./Comments";
 import ArticleVotes from "./ArticleVotes";
+import PostComment from "./PostComment";
 
 function SingleArticle () {
     const { article_id } = useParams();
@@ -52,11 +53,14 @@ return (
                 <ArticleVotes article_id={article_id}/>
                </section>
 
+               <section className="comments-section">
+               <PostComment article_id={article_id} />
+               </section>
+
                <section className="comments-list">
                <Comments article_id={article_id} />
                </section>
 
-               {/* </li> */}
             </div>
         )}
     </div>

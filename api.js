@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 
 //GET /api/articles
@@ -29,4 +30,16 @@ const patchVotes = (article_id, inc_votes) => {
   { inc_votes: inc_votes })
 }
 
-export { getArticles, getSingleArticle, getComments, patchVotes }
+//POST /api/articles/:article_id/comments
+
+const postComments = (article_id, username, body) => {
+return axios
+.post(`https://nc-news-ov84.onrender.com/api/articles/${article_id}/comments`,
+{username: username,
+  body: body
+});
+
+}
+
+
+export { getArticles, getSingleArticle, getComments, patchVotes, postComments }
