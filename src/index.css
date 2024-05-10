@@ -66,3 +66,31 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.addCommentContainer {
+  margin-top: 20px;
+}
+
+.addCommentContainer label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.addCommentContainer input[type="text"],
+.addCommentContainer textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.addCommentContainer button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.addCommentContainer button:hover {
+  background-color: #0056b3;
+}
