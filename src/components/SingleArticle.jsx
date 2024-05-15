@@ -5,12 +5,14 @@ import { getComments } from "../../api";
 import Comments from "./Comments";
 import ArticleVotes from "./ArticleVotes";
 import PostComment from "./PostComment";
+import DeleteComment from "./DeleteComment";
 
 function SingleArticle () {
     const { article_id } = useParams();
     const [article, setArticles] = useState([])  
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+    const [comments, setComments] = useState([])
 
     useEffect(() => {
         setLoading(true)
@@ -57,9 +59,16 @@ return (
                <PostComment article_id={article_id} />
                </section>
 
+               <section className="delete-comment">
+                <DeleteComment article_id={article_id} />
+               </section>
+
                <section className="comments-list">
                <Comments article_id={article_id} />
                </section>
+
+
+
 
             </div>
         )}
