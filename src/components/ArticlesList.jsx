@@ -24,20 +24,24 @@ if (error) {
 }
 
 return (
-    <div>
+    <div className="articles-container">
         <h1>Read Articles</h1>
         <ul>
+        <div className="articles-list">
             {articles.map((article) => {
             return (    
              <li key={article.article_id}>
                 <img src={article.article_img_url}/>
+                <div className="article-details"></div>
                <h2>{article.title}</h2>
                <h3>Author: {article.author}</h3>
                <Link to={`/articles/${article.article_id}`}>Read more</Link>
                 </li>
             )
 })}
+</div>
         </ul>
+    
     </div>
 )
 }

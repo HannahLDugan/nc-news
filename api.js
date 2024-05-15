@@ -38,8 +38,14 @@ return axios
 {username: username,
   body: body
 });
+}
 
+//DELETE /api/comments/:comment_id
+
+const deleteComments = (comment_id) => {
+  return axios
+  .patch(`https://nc-news-ov84.onrender.com/api/comments/${comment_id}`)
 }
 
 
-export { getArticles, getSingleArticle, getComments, patchVotes, postComments }
+export { getArticles, getSingleArticle, getComments, patchVotes, postComments, deleteComments }

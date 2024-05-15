@@ -6,6 +6,7 @@ const PostComment = ({article_id}) => {
     const [error, setError] = useState(null)
     const [commentBody, setCommentBody] = useState("")
     const [username, setUsername] = useState("")
+    const [comments, setComments] = useState([])
 
 
 const handleUsernameChange = (event) => {
@@ -20,6 +21,8 @@ const handlePostComment = () => {
         setLoading(true)
         postComments(article_id, username, commentBody)
         .then((response) => {
+            setComments([...response, comments])
+            setCommentBody("")
             console.log("your comment has successfully been posted")
         })
     .catch ((error) => {
@@ -50,6 +53,9 @@ return (
     </div>
 )
 }
+
+//need to make it so that the comments render on the screen
+//change it so that the user is already logged in and doesn't have a login section next to comment box
 
 export default PostComment;
 
